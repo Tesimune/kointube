@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="177" height="175" viewBox="0 0 177 175">
+  <g id="Group_18" data-name="Group 18" transform="translate(179 439)">
+    <g id="Group_13" data-name="Group 13" transform="translate(510 -64)">
+      <rect id="Rectangle_30" data-name="Rectangle 30" width="139" height="139" rx="19" transform="translate(-670 -375)" fill="rgba(255,255,255,0)"/>
+      <g id="Group_11" data-name="Group 11" transform="translate(-661.786 -360.988)">
+        <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(0 0)" fill="none" stroke="#dd003f" stroke-width="30">
+          <circle cx="55.726" cy="55.726" r="55.726" stroke="none"/>
+          <circle cx="55.726" cy="55.726" r="40.726" fill="none"/>
+        </g>
+        <path id="Polygon_1" data-name="Polygon 1" d="M40.327,19.662a13,13,0,0,1,22.554,0L92.042,70.508A13,13,0,0,1,80.765,89.976H22.442A13,13,0,0,1,11.165,70.508Z" transform="translate(33.072 106.628) rotate(-90)" fill="#dd003f"/>
+      </g>
+    </g>
+    <text id="koinTUBE" transform="translate(-179 -277)" fill="#cfcfcf" font-size="36" font-family="Poppins-Black, Poppins" font-weight="800"><tspan x="0" y="0">koin</tspan><tspan y="0" fill="#dd003f">TUBE</tspan></text>
+  </g>
+</svg>
