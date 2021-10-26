@@ -1,3 +1,14 @@
+<?php include("header1.php");
+
+include('db/function.php');
+if (!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: landing.php');
+}
+
+?>
+
+
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7 no-js" lang="en-US">
@@ -40,16 +51,6 @@
 			</div>
 	</div>
 	<!--end of preloading-->
-
-	<?php include("header1.php");
-
-	include('db/function.php');
-	if (!isLoggedIn()) {
-		$_SESSION['msg'] = "You must log in first";
-		header('location: landing.php');
-	}
-
-	?>
 	<!-- END | Header -->
 
 	<div class="hero user-hero">
