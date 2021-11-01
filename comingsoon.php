@@ -1,14 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7 no-js" lang="en-US">
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8 no-js" lang="en-US">
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
-
-<!-- comingsoon14:54-->
 
 <head>
 	<!-- Basic need -->
@@ -94,7 +85,5 @@
 	<script src="js/plugins2.js"></script>
 	<script src="js/custom.js"></script>
 </body>
-
-<!-- comingsoon14:55-->
 
 </html>

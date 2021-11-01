@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7 no-js" lang="en-US">
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8 no-js" lang="en-US">
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
-<html lang="en" class="no-js">
+<?php
+session_start();
 
-<!-- landing14:04-->
+if (isset($_SESSION['user'])) {
+    header('location: index.php');
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 
 <head>
     <!-- Basic need -->
@@ -35,104 +35,83 @@
 <body>
     <!--preloading-->
     <div id="preloader">
-        <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
+        <img class="logo" src="images/logo.svg" alt="" width="119" height="58">
         <div id="status">
             <span></span>
             <span></span>
         </div>
     </div>
     <!--end of preloading-->
-    <!--login form popup-->
-    <?php include("db/function.php"); ?>
-    <div class="login-wrapper" id="login-content">
-        <div class="login-content">
-            <a href="#" class="close">x</a>
-            <h3>Login</h3>
-            <form method="post" action="#">
-                <div class="row">
-                    <label for="username">
 
-                        <input type="email" name="email" id="email" placeholder="EMAIL" required="required" />
-                    </label>
-                </div>
-
-                <div class="row">
-                    <label for="password">
-                        Password:
-                        <input type="password" name="password" id="password" placeholder="********************" required="required" />
-                    </label>
-                </div>
-                <div class="row">
-                    <div class="remember">
-                        <div>
-                            <input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
-                        </div>
-                        <a href="#">Forget password ?</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <button type="submit" name="login_btn">Login</button>
-                </div>
-            </form>
-            <div class="row">
-                <p>Or via social</p>
-                <div class="social-btn-2">
-                    <a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
-                    <a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end of login form popup-->
+    <?php
+    require_once 'auth/login.php';
+    require_once 'auth/register.php';
+    ?>
 
     <!--signup form popup-->
     <div class="login-wrapper" id="signup-content">
         <div class="login-content">
             <a href="#" class="close">x</a>
             <h3>sign up</h3>
-            <form method="post" action="#">
-                <div class="row">
-                    <label>
-                        <input type="text" name="first_name" id="first_name" placeholder="FIRST NAME" required="required" />
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="text" name="last_name" id="last_name" placeholder="LAST NAME" required="required" />
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="text" name="username" id="username" placeholder="USERNAME" required="required" />
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="email" name="email" id="email-2" placeholder="EMAIL ADDRESS" required="required" />
-                    </label>
-                </div>
+            <form method="post" action="db/auth/register.php">
+                <?php if (isset($_SESSION['errors'])) { ?>
+                    <ul>
+                        <?php foreach ($_SESSION['errors'] as $error) { ?>
+                            <li style="color: red;"><?php echo $error ?></li>
+                    </ul>
+                <?php }
+                    } elseif (isset($_SESSION['message'])) { ?>
+                <li style="color: green"><?php echo $_SESSION['message'] ?></li>
+            <?php } ?>
 
-                <div class="row">
-                    <label>
-                        <input type="password" name="password_1" id="password-2" placeholder="PASSWORD" required="required" />
-                    </label>
+            <div class="row">
+                <label>
+                    <input type="text" name="first_name" id="first_name" placeholder="FIRST NAME" required="required" />
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="text" name="last_name" id="last_name" placeholder="LAST NAME" required="required" />
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="text" name="username" id="username" placeholder="USERNAME" required="required" />
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="email" name="email" id="email-2" placeholder="EMAIL ADDRESS" required="required" />
+                </label>
+            </div>
+
+            <div class="row">
+                <label>
+                    <input type="password" name="password" id="password-2" placeholder="PASSWORD" required="required" />
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="password" name="password_2" id="password-2" placeholder="CONFIRM PASSWORD" required="required" />
+                </label>
+            </div>
+            <div class="row">
+                <button type="submit" name="submit">sign up</button>
+            </div>
+            <br>
+            <div class="row">
+                <div class="social-btn-2">
+                    <a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
+                    <a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
                 </div>
-                <div class="row">
-                    <label>
-                        <input type="password" name="password_2" id="repassword-2" placeholder="CONFIRM PASSWORD" required="required" />
-                    </label>
-                </div>
-                <div class="row">
-                    <button type="submit" name="submit">sign up</button>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="social-btn-2">
-                        <a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
-                        <a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
-                    </div>
-                </div>
+            </div>
             </form>
+            <?php
+            if (isset($_SESSION['errors']) || isset($_SESSION['message'])) {
+                unset($_SESSION['errors']);
+                unset($_SESSION['message']);
+            }
+            ?>
         </div>
     </div>
     <!--end of signup form popup-->
@@ -143,12 +122,12 @@
         <img src="images/logo.svg" alt="Logo">
 
         <div class="row landing-hero-text">
-            <h2>MOST COMPLETED</h2>
+            <h2>MOST COMPLETE</h2>
             <h2 class="text-yellow">FILM REVIEW &middot; MOVIE DATABASE</h2>
             <h2>AND STREAMING PLATFORM</h2>
             <br>
             <a href="#" class="redbtn signupLink">sign up</a>
-            <a href="#" class="redbtn loginLink" style="margin-left: 10px;">LOG In</a>
+            <a href="#" class="redbtn loginLink" style="margin-left: 10px; margin-top: 10px;">LOG In</a>
         </div>
 
 
